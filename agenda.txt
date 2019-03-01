@@ -1,0 +1,31 @@
+1) Promise
+3) Product description, product link to image
+4) APIs
+        - Get all product
+        - Get product by Id
+        - Create product
+        - Update product details
+        - SKU vs product. SKU can have price, stock
+           - Color 
+           - Size
+        - Delete product
+        - Update stock
+        - Change price ( < 70% change)
+5) business logic seperately, routes, db seperately
+
+
+Table Design
+------------
+Product
+1 Allen Solly Basic Shirt, img url
+
+SKU
+1 Blue S 20 Rs.1500
+1 Red XL 10 Rs.1300
+
+------------
+
+Notes for later:
+1) helmet
+2) discounts
+3) Admin vs nonadmin
