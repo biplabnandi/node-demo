@@ -11,6 +11,17 @@ function getProducts() {
     })
 }
 
+function getProductIdByName(product_name) {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT pid FROM product WHERE product_name = $1', [product_name], (err, result) => {
+            if(err)
+                reject(err)
+            else
+                resolve(result.rows)
+        })
+    })
+}
+
 function getProductById(id) {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM product WHERE pid = $1', [id], (error, results) => {
@@ -60,6 +71,7 @@ function deleteProduct(id) {
 module.exports = {
     getProducts,
     getProductById,
+    getProductIdByName,
     createProduct,
     updateProduct,
     deleteProduct,
