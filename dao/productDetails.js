@@ -22,7 +22,7 @@ function getItemByColour(pid, colour) {
     })
 }
 
-function getitemBySize(pid, size) {
+function getItemBySize(pid, size) {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM product, sku WHERE product.pid = $1 AND sku.size = $2', [pid, size], (error, results) => {
             if (error)
@@ -49,6 +49,6 @@ function getItemByColourAndSize(pid, size, colour) {
 module.exports = {
     getItemsByPid,
     getItemByColour,
-    getitemBySize,
+    getItemBySize,
     getItemByColourAndSize
 }

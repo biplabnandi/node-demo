@@ -44,6 +44,17 @@ function getProductByColourAndSize(pid, size, colour) {
     })
 }
 
+function getStockById(id) {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT stock FROM sku WHERE id = $1', [id], (err, result) => {
+            if(err)
+                reject(err)
+            else
+                resolve(result.rows)
+        })
+    })
+}
+
 function updateInventory(id, stock) {
     return new Promise((resolve, reject) => {
         pool.query('UPDATE sku SET stock = $2 WHERE id = $1', [id, stock], (error, results) => {
@@ -71,5 +82,6 @@ module.exports = {
     getProductBySize,
     getProductByColour,
     getProductByColourAndSize,
-    updateInventory
+    updateInventory,
+    getStockById
 }
